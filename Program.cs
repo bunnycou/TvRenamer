@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace TvRenamer
 {
@@ -28,13 +29,19 @@ namespace TvRenamer
             string show = Console.ReadLine();
             Console.WriteLine("Please enter the season of the show (enter the number as a double digit; i.e. 01)");
             string season = Console.ReadLine();
-            Console.WriteLine("Please enter the resolution/Extra info");
+            Console.WriteLine("Please enter the resolution/Extra info (type 'null' to use info that comes after the last '-'");
             string extra = Console.ReadLine();
 
             int i = 0;
             foreach (string f in files)
             {
                 i++;
+
+                if (extra.ToLower() == "null")
+                {
+                    extra = Regex.Split(f, @"\s\-\s")[2];
+                }
+
                 string ep = i.ToString("00");
                 File.Move(f, $"{show} - s{season}e{ep} - {extra}.{type}");
             }
