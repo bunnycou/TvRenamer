@@ -7,7 +7,7 @@ namespace TvRenamer
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(/*string[] args*/)
         {
             var files = new List<string> { };
             var type = "";
@@ -39,7 +39,7 @@ namespace TvRenamer
 
                 if (extra.ToLower() == "null")
                 {
-                    extra = Regex.Split(f, @"\s\-\s")[2];
+                    extra = Regex.Split(f, @"\s\-\s")[Regex.Split(f, @"\s\-\s").Length-1];
                 }
 
                 string ep = i.ToString("00");
