@@ -1,4 +1,4 @@
-# TVRename Py
+# TVRenamer Py
 
 ## A Python project to rename a folder of episodes for plex
 
