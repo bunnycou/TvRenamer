@@ -21,7 +21,7 @@ ep = 1
 for x in listdir():
 
     # find the files that end with the desired extension
-    if x.endswith("mkv" or "mp4"):
+    if x.endswith("mkv") or x.endswith("mp4"):
 
         # format episode number
         if ep < 10:
